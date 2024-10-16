@@ -27,15 +27,15 @@
             android:exported="true">
         </activity>
         <activity
-            android:name=".CocinaActivity"
+            android:name=".Screens.CocinaActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".BathActivity"
+            android:name=".Screens.BathActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".DormitorioActivity"
+            android:name=".Screens.DormitorioActivity"
             android:exported="true">
         </activity>
     </application>
