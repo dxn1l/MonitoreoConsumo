@@ -35,9 +35,6 @@ fun ConsumoApp() {
             onNavigateToConsumption = { currentScreen = Screen.Consumption }
         )
     }
-
-
-
 }
 
 enum class Screen {
