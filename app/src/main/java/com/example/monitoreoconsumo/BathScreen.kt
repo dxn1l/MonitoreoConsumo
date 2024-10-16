@@ -21,7 +21,8 @@ class BathActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApp {
-                BathScreen(onNavigateToMain = { startActivity(Intent(this, MainActivity::class.java)) })
+                BathScreen(onNavigateToMain = {
+                    startActivity(Intent(this, MainActivity::class.java)) })
             }
         }
     }

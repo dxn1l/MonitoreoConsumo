@@ -19,12 +19,23 @@
             android:theme="@style/Theme.MonitoreoConsumo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ConsumptionActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".CocinaActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".BathActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".DormitorioActivity"
             android:exported="true">
         </activity>
     </application>
