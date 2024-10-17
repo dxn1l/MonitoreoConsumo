@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.monitoreoconsumo.Charts.CustomLineChart
 import com.example.monitoreoconsumo.DataGeneration.generateEnergyData
+import com.example.monitoreoconsumo.Firebase.saveAverageConsumption
 
 @Composable
 fun CocinaScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () -> Unit) {
@@ -43,6 +44,8 @@ fun CocinaScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () -> U
                 data = generatedData
                 isLoading = false
                 Log.d("CocinaScreen", "Data generated: $data")
+                val averageConsumption = data.map { it.second }.average()
+                saveAverageConsumption("kitchen", averageConsumption)
             }
         }) {
             Text(text = "Gasto energético")
@@ -89,4 +92,3 @@ fun CocinaScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () -> U
         }
     }
 }
-

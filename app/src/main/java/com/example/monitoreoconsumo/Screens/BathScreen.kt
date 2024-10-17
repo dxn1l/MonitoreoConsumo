@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.monitoreoconsumo.Charts.CustomLineChart
 import com.example.monitoreoconsumo.DataGeneration.generateEnergyData
+import com.example.monitoreoconsumo.Firebase.saveAverageConsumption
 
 @Composable
 fun BathScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () -> Unit) {
@@ -43,6 +44,8 @@ fun BathScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () -> Uni
                 data = generatedData
                 isLoading = false
                 Log.d("BathScreen", "Data generated: $data")
+                val averageConsumption = data.map { it.second }.average()
+                saveAverageConsumption("bathroom", averageConsumption)
             }
         }) {
             Text(text = "Gasto energético")
@@ -89,7 +92,6 @@ fun BathScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () -> Uni
         }
     }
 }
-
 fun getRecommendation(data: List<Pair<Int, Int>>): String {
     val averageConsumption = data.map { it.second }.average()
     return if (averageConsumption > 50) {
