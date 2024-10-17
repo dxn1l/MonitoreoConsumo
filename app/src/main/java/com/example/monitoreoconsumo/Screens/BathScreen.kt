@@ -4,7 +4,10 @@ import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -57,38 +60,43 @@ fun BathScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () -> Uni
         if (isLoading) {
             Text(text = "Cargando...", fontSize = 20.sp, fontWeight = FontWeight.Medium)
         } else if (data.isNotEmpty()) {
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                item {
-                    AndroidView(
-                        factory = { CustomLineChart(context).apply { setData(data) } },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(300.dp)
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Text(text = "Datos de Consumo", fontSize = 20.sp, fontWeight = FontWeight.Bold)
-                }
-                items(data) { item ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
+                AndroidView(
+                    factory = { CustomLineChart(context).apply { setData(data) } },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(300.dp)
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(text = "Datos de Consumo", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                Spacer(modifier = Modifier.height(16.dp))
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)
+                        .height(100.dp)
+                        .verticalScroll(rememberScrollState())
+
+                ) {
+                    Column(
+                        modifier = Modifier.padding(8.dp)
                     ) {
-                        Text(text = "Tiempo: ${item.first}h")
-                        Text(text = "Consumo: ${item.second}kW")
+                        data.forEach { item ->
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(8.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Text(text = "Tiempo: ${item.first}h")
+                                Text(text = "Consumo: ${item.second}kW")
+                            }
+                        }
                     }
                 }
-                item {
-                    Spacer(modifier = Modifier.height(16.dp))
-                    val recommendation = getRecommendation(data)
-                    Log.d("BathScreen", "Recommendation: $recommendation")
-                    Text(text = recommendation, fontSize = 18.sp, fontWeight = FontWeight.Medium)
-                }
-            }
+                Spacer(modifier = Modifier.height(16.dp))
+                val recommendation = getRecommendation(data)
+                Log.d("BathScreen", "Recommendation: $recommendation")
+                Text(text = recommendation, fontSize = 18.sp, fontWeight = FontWeight.Medium)
         }
     }
 }
