@@ -1,4 +1,4 @@
-# MonitoreoConsumo hecho por Daniel Andrés Moreno Rey , Rodrigo Rojas Redondo , Artulo Lopez Castaño y Roberto quilez
+# MonitoreoConsumo hecho por Daniel Andrés Moreno Rey , Rodrigo Rojas Redondo , Arturo Lopez Castaño y Roberto quilez
 
 Link del repositorio: https://github.com/dxn1l/MonitoreoConsumo.git
 
