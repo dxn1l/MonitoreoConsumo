@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "240159186245",
-    "project_id": "monitoreoconsumo",
-    "storage_bucket": "monitoreoconsumo.appspot.com"
+    "project_number": "670752753325",
+    "project_id": "monitoreoconsumo-10764",
+    "storage_bucket": "monitoreoconsumo-10764.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:240159186245:android:c9ebaddbecb64c070f322c",
+        "mobilesdk_app_id": "1:670752753325:android:32de754b5c61c7055d2824",
         "android_client_info": {
           "package_name": "com.example.monitoreoconsumo"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBsKODSYJ21o0yNe3GBiI85-ZMdwrRbWBk"
+          "current_key": "AIzaSyCBQDGFoa1ZA2b98Dy9CbpTjtIEnHf1jOM"
         }
       ],
       "services": {
