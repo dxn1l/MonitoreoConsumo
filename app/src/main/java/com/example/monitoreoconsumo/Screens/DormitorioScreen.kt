@@ -2,12 +2,12 @@ package com.example.monitoreoconsumo.Screens
 
 import android.util.Log
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -20,6 +20,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.example.monitoreoconsumo.Charts.CustomLineChart
 import com.example.monitoreoconsumo.DataGeneration.generateEnergyData
 import com.example.monitoreoconsumo.Firebase.saveAverageConsumption
+import com.example.monitoreoconsumo.ui.theme.verde
 
 @Composable
 fun DormitorioScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () -> Unit) {
@@ -41,7 +42,10 @@ fun DormitorioScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () 
             modifier = Modifier.padding(top = 16.dp)
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = {
+        Button( colors = ButtonDefaults.buttonColors(
+            contentColor = MaterialTheme.colorScheme.onSurface,
+            containerColor = verde
+        ),onClick = {
             isLoading = true
             generateEnergyData { generatedData ->
                 data = generatedData
@@ -54,7 +58,9 @@ fun DormitorioScreen(modifier: Modifier = Modifier, onNavigateToConsumption: () 
             Text(text = "Gasto energético")
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = onNavigateToConsumption) {
+        Button( colors = ButtonDefaults.buttonColors(
+            contentColor = MaterialTheme.colorScheme.onSurface,
+            containerColor = verde),onClick = onNavigateToConsumption) {
             Text(text = "Volver a la pantalla principal")
         }
         if (isLoading) {
