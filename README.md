@@ -1,5 +1,7 @@
 # MonitoreoConsumo hecho por Daniel Andrés Moreno Rey , Rodrigo Rojas Redondo , Artulo Lopez Castaño y Roberto quilez
 
+https://github.com/dxn1l/MonitoreoConsumo.git
+
 MonitoreoConsumo es una aplicación de Android que monitorea y registra el consumo de energía en diferentes habitaciones de una casa. La aplicación utiliza Firebase para almacenar los datos de consumo de energía promedio para el baño, la cocina y el dormitorio.
 
 ## Características
